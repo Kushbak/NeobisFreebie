@@ -339,7 +339,7 @@ button{
 
 
 
-
+// queries for changin' wrapper's width for adaptive container
 
 @media (min-width: 576px){
 	.wrapper{
@@ -370,95 +370,55 @@ button{
 		padding: 60px 100px;
 	}
 }
- 
+// queries for all, yes
 
 @media (max-width: 1024px){ 
+	:root{
+		font-size: 14px;
+	}
 	.button{
 		font-size: 0.9rem;
-	}
-	.title_big{
-		font-size: 3rem;
-	}
-	.descr {
-	    font-size: 1rem;
-    }
+	} 
     .text-block{
 	    padding: 40px 100px;
-    }
-    .contact{
-	    &__text {
-		    font-size: 1.6rem;
-		}
-	}
+    } 
 	.blog-post-main{
 		img{
 			width: 40%;
 		}
 		&__text{
 			padding: 60px;
-		}
-		&__title {
-		    font-size: 2.6rem;
-		}
+		} 
 	}
 	.blog-post{
-		&__title {
-		    font-size: 1.3rem;
+		&__title { 
 		    font-weight: 700;
 		    margin-bottom: 15px;
-		}
-		&__descr{
-		    font-size: 1rem;
-		}
+		} 
 	}
 }
 
 @media (max-width: 768px){
-	.button {
-	    font-size: 0.6rem;
-	}
+	:root{
+		font-size: 13px;
+	} 
 	.title_big{
-		font-size: 2.3rem;
-	}
-	.title{
-		font-size: 2rem;
-	}
-	.descr{
-		font-size: 0.8rem;
+		font-size: 2.7rem;
+	} 
+	.descr{ 
 	    margin-bottom: 40px;
 	}
 	.text-block{
 	    padding: 20px 60px;
-	}
-    .services-block{ 
-    	&__name{
-    		font-size: 1rem;
-    	}
-    	&__btn{
-		    font-size: 0.7rem;
-    	}
-    }
-	.contact{
-	    &__text {
-		    font-size: 1.4rem;
-		}
-	}
+	} 
 	.blog-post-main{
 	    &__text{
 		    padding: 40px;	    	
 	    }
 		&__title {
-		    font-size: 2rem;
+		    font-size: 2.7rem;
 		}
-	}
-	.blog-post{
-		&__title{
-		    font-size: 1.2rem;
-		}
-		&__descr{
-		    font-size: 0.9rem;
-		}
-	}
+	} 
 	.footer{
 		&__links{
 		    width: 40%;
@@ -467,6 +427,9 @@ button{
 }
 
 @media (max-width: 576px){
+	:root{
+		font-size: 12px;
+	}
 	.wrapper{
 		max-width: 100%;
 	}
