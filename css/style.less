@@ -214,10 +214,10 @@ button{
 }
  
 .services-block{
-	display: flex; 
-    .justify-content(space-between);
-	&__item{
-		width: 24%;
+	    display: grid;
+	    grid-template-columns: repeat(4, 1fr);
+	    grid-gap: 10px;
+	&__item{ 
 		img{
 			width: 100%;
 		}
@@ -273,16 +273,11 @@ button{
 		font-size: 3rem;
 	} 
 }  
-.blog-post{ 
-    display: flex;
-    .flex-direction(column);
-    .justify-content(space-around);  
+.blog-post{  
 	.flex-basis(45%);
-    padding: 30px;
-    height: 100%;
-    min-height: 300px;
+    padding: 30px; 
 	&__title{
-		font-size: 1.5rem;
+		font-size: 1.4rem;
 		font-weight: bold;
 		margin-bottom: 15px;
 	}
@@ -327,17 +322,7 @@ button{
 	text-align: center;
 	color: #000;
 }
-
-
-
-
-
-
-
-
-
-
-
+  
 
 // queries for changin' wrapper's width for adaptive container
 
@@ -370,6 +355,8 @@ button{
 		padding: 60px 100px;
 	}
 }
+
+
 // queries for all, yes
 
 @media (max-width: 1024px){ 
@@ -408,6 +395,9 @@ button{
 	.text-block{
 	    padding: 20px 60px;
 	} 
+	.services-block{
+	    grid-template-columns: repeat(2, 1fr);
+	}
 	.blog-post-main{
 	    &__text{
 		    padding: 40px;	    	
@@ -425,10 +415,54 @@ button{
 
 @media (max-width: 576px){
 	:root{
-		font-size: 14px;
+		font-size: 12px;
+	}
+	.button{
+	    padding: 10px 18px;
 	}
 	.wrapper{
-		min-width: 1170px;
-		width: 100%; 
+		max-width: none;
+		padding: 0 15px;
 	}
+	.text-block,
+	.photo-block{
+		-webkit-flex-basis: 100%;
+		        flex-basis: 100%;
+	}
+	.photo-block{
+		display: none;
+	}
+	.contact{
+	    display: grid;
+	    grid-gap: 5px;
+	    &__text {
+		    font-size: 1.7rem;
+		}
+	}
+	.blog-post-main{
+		&__text{
+		    padding: 30px 40px;
+		}
+		&__title {
+	        margin: 10px 0;
+		    font-size: 1.6rem;
+		}
+	}
+	.blog-post {
+		.flex-basis(100%);
+		&__title{
+			font-size: 2rem;
+		}
+	}
+	.footer{
+	    padding: 40px 0;
+		&__navbar{
+			padding: 40px 0;
+			width: 100%;
+		}
+		&__links{
+		    width: 70%;
+		}
+	}
+
 }
