@@ -58,7 +58,9 @@ button{
 	background: none;
 	border: none;
 } 
-
+#check-menu{
+    display: none;
+}
 
 .wrapper{
 	width: 100%;
@@ -155,12 +157,10 @@ button{
 
 
 .header{
-	display: grid;
-	grid-template-columns: 1fr 3fr 1fr;
-	grid-template-rows: 1fr;
-	.align-self(center);
-	padding: 20px 30px; 
-	
+	padding: 20px 30px;  
+	label{
+	    display: none;
+	} 
 }
 .logo{ 
 	width: 30%;
@@ -171,9 +171,15 @@ button{
 	}
 }
 .navbar{ 
-	display: flex;   
-    .justify-content(center);
-    .align-self(center);
+		display: grid;
+		grid-template-columns: 1fr 3fr 1fr;
+		grid-template-rows: 1fr;
+		.align-self(center);
+	&__links{
+	    .align-self(center);
+		display: flex;   
+	    .justify-content(center);
+	}
 	&__link{
 		margin-right: 20px;
 	}
@@ -423,6 +429,34 @@ button{
 	.wrapper{
 		max-width: none;
 		padding: 0 15px;
+	}
+	.logo {
+	    width: 80%;
+	}
+	.header{
+		align-items: center;
+		label{
+			display: block;
+		}
+	}
+	#check-menu:checked ~ .navbar{
+		display: none;
+	}
+	.navbar{  
+	    align-items: center;
+		&__links{
+		    .justify-content(normal);
+		    .align-self(normal);
+		    .flex-direction(column);
+		    .align-items(center);
+		} 
+		&__link{
+			margin: 10px 0 0;
+		}
+		&__link:hover{
+			color: @primaryColor;
+			.transition();
+		}
 	}
 	.text-block,
 	.photo-block{
