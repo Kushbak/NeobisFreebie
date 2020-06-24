@@ -58,9 +58,14 @@ button{
 	background: none;
 	border: none;
 } 
-#check-menu{
-    display: none;
-}
+.burger{
+	&__input{
+	    display: none;
+	}
+	&__label{
+		display: none;
+	}	
+} 
 
 .wrapper{
 	width: 100%;
@@ -157,10 +162,7 @@ button{
 
 
 .header{
-	padding: 20px 30px;  
-	label{
-	    display: none;
-	} 
+	padding: 20px 30px;   
 }
 .logo{ 
 	width: 30%;
@@ -433,16 +435,19 @@ button{
 	.logo {
 	    width: 80%;
 	}
-	.header{
-		align-items: center;
-		label{
-			display: block;
+	.burger{
+		&__label{
+			display: inline-block;
+		}
+		&__input:checked ~ .navbar{
+			display: grid;
 		}
 	}
-	#check-menu:checked ~ .navbar{
-		display: none;
-	}
+	.header{
+		align-items: center;
+	} 
 	.navbar{  
+		display: none;
 	    align-items: center;
 		&__links{
 		    .justify-content(normal);
