@@ -29,8 +29,14 @@
 	-webkit-flex-direction: @value;
 	    -ms-flex-direction: @value;
 	        flex-direction: @value;
+} 
+.transform-translate(@value1, @value2){ 
+	-webkit-transform: translate(@value1, @value2);
+	   -moz-transform: translate(@value1, @value2);
+	    -ms-transform: translate(@value1, @value2);
+	     -o-transform: translate(@value1, @value2);
+	        transform: translate(@value1, @value2);
 }
-
 html, body, *{
 	padding: 0;
 	margin: 0;
@@ -159,7 +165,9 @@ button{
 }
 
  
-
+.burger, .burger-input{
+	display: none;
+} 
 
 .header{
 	padding: 20px 30px;   
@@ -434,33 +442,75 @@ button{
 	}
 	.logo {
 	    width: 80%;
-	}
+	    grid-area: logo;
+	    a{
+	    	img{
+	    		width: 70%;
+	    	}
+	    }
+	}  
 	.burger{
-		&__label{
-			display: inline-block;
-		}
-		&__input:checked ~ .navbar{
-			display: grid;
-		}
-	}
+    	display: block;
+    	margin: 5px 0;
+    	&__btn{
+    		display: block;
+    		position: relative;
+		    width: 50px;
+		    height: 50px;
+	    	-webkit-border-radius: 50%;
+	    	        border-radius: 50%;
+	    	background: #FFF;
+    	}
+    	&__line, 
+    	&__line::after, 
+    	&__line::before{
+    		position: absolute;
+    		top: 50%;
+    		left: 50%;
+    		margin: -1px 0 0 -10px; 
+    		width: 20px;
+    		height: 2px;
+    		background: #000;  
+    	}
+    	&__line::before{
+    		content: ""; 
+    		.transform-translate(0, 6px);
+    	}
+    	&__line::after{
+    		content: ""; 
+    		.transform-translate(0, -6px);
+    	}
+    }
+
+	.burger-input:checked ~ .navbar{
+		display: grid;
+	} 
 	.header{
 		align-items: center;
 	} 
 	.navbar{  
 		display: none;
 	    align-items: center;
+	    grid-template-areas: 'logo btn'
+	    	'links links';
+	    grid-template-columns: 1fr 1fr;
+	    grid-template-rows: 1fr 2fr;
 		&__links{
 		    .justify-content(normal);
 		    .align-self(normal);
 		    .flex-direction(column);
 		    .align-items(center);
+		    grid-area: links;
 		} 
 		&__link{
-			margin: 10px 0 0;
+			margin: 20px 0 0;
 		}
 		&__link:hover{
 			color: @primaryColor;
 			.transition();
+		}
+		&__btn{
+		    grid-area: btn; 
 		}
 	}
 	.text-block,
